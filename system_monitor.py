@@ -280,7 +280,10 @@ def main():
     )
     app.icon = icon
 
-    def _tick():
+    def _tick(icon_arg=None):
+        # pystray 会把 icon 作为参数传给 setup 回调
+        if icon_arg is not None:
+            icon_arg.visible = True
         app.refresh()
         return True
 
